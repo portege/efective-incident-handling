@@ -1,59 +1,16 @@
 # Overview
-Having an always available service is almost not possible to have 100% uptime guarantee. What happens in the every organization is that they try to anticipate to any disruption by using some of the opproach such as multi data-center, auto-scale, CDN, Caching etc. And also to set error-budget to give a flexibility to engineer for product improvement.
+The purpose of this framework is to help any organization or team to align their SRE team with common practice or want to start to utilize the current team to handling for any unexpected event in production.
 
-Effective Incident Handling is a framework to handle any incident to safe the error-budget, and increasing product SLO. The process can be simplify by using following formula:
-TIME-TO-RESPOND + TIME-TO-RESOLVE < ERROR-BUDGET
+# Preface
+Nobody likes downtime in production. But downtime is inevitable, this can be from an expected event like migration cut-over, scheduled maintenance, major changes -- or downtime because of unexpected events such as security breach, data leak, sudden load.
 
-This framework has 4 main focus, Acknowledgement, Investagion, Mitigation and Fixing.
+We usually have a time estimation on an expected event, but when it comes to unexpected events like production issues or incidents, the timeframe can be wider and unknown, and this unknown may spend the Error budget unexpectedly will impact the SLO.
 
-# Acknowledgment
-## Objective
-To be alarmed as early as possible
-* Ticket system
-* Logging system
-* SLO
-* Metrics
-  * APM
-  * Infrastructure
-  * Service rates
-* Alarm
-  * Trend
-  * Actual
-  * Anomalies
-* Dashboard
-* Communication Channel
+## Production issue
+The root cause of production issue or any incident that happens in production -- can be from the code, infrastructure, or from abuse of resources or privilege. There are 4 common steps or practices to handle an incident.
 
-# Investigation
-## Objective
-To understand the overall situation, including the impact and the root cause. and to plan what's the action item to resolve the incident.
-* Logging system
-  * API Call
-  * Activity / event timeline
-  * Changes logs
-* Tools
-* Dashboard
-* Metrics
-* RCA
-* Documentation
-  * Business flow
-  * Architecture
-  * Pipeline diagram
+| [acknowledgment](acknowledgement/index.md) | [investigation](investigation/index.md) | [mitigation](mitigation/index.md) | [fix](fix/index.md) |
 
-# Mitigation
-## Objective
-Usualy this is a temporary solution to restore the service back to normal.
-* Collaboration
-* Communication
-* Run-book
-* Documentation
-* Knowledge Transfer / Sharing
-* CICD
-* Permission / Role
-* Post-Mortem review
-* Change management process
+The time from the incident until the acknowledgment called meantime-time-to-detect. And when first start the investigation until the service gets restored is called meantime-to-recover. While to get a permanent solution or fix the issue it is called meantime-to-resolve. And the total overall process to handle the incident should be lesser than or equal to the Error budget.
 
-# Fixing
-## Objective
-The phase to find out the root cause and give a permanent solution
-* Escalation Path
-* Impact analysis
+> ∑(meantime-to-detect + meantime-to-mitigate + meantime-to-resolve) ≤ error-budget
