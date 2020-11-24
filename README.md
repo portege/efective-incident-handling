@@ -9,7 +9,7 @@ We usually have a time estimation on an expected event, but when it comes to une
 ## Production issue
 The root cause of production issue or any incident that happens in production -- can be from the code, infrastructure, or from abuse of resources or privilege. There are 4 common steps or practices to handle an incident.
 
-| [acknowledgment](acknowledgement/index.md) | [investigation](investigation/index.md) | [mitigation](mitigation/index.md) | [fix](fix/index.md) |
+| [acknowledgment](acknowledgment/index.md) | [investigation](investigation/index.md) | [mitigation](mitigation/index.md) | [fix](fix/index.md) |
 
 The time from the incident until the acknowledgment called meantime-time-to-detect. And when first start the investigation until the service gets restored is called meantime-to-recover. While to get a permanent solution or fix the issue it is called meantime-to-resolve. And the total overall process to handle the incident should be lesser than or equal to the Error budget.
 
